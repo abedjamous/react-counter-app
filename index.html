@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+       class Counter extends React.Component {
+            constructor(props) {
+                super(props);
+
+                this.state = {
+                    count: 0,
+                }
+            }
+
+
+            handleIncrement = (event) => {
+                if (this.state.count < 20) {
+                    
+                    
+                this.setState((currentState) => (
+                    { count: currentState.count + 1 }
+                ))}
+            }
+
+            handleDcrement = (event) => {
+                if (this.state.count > 0) {
+                
+                this.setState((currentState) => (
+                    { count: currentState.count - 1 }
+                ))
+                }
+
+            }
+
+
+            render() {
+                // setTimeout(() => {
+                //     this.setState({
+                //         count: 22
+                //     });
+                // }, 1500);
+
+                return (
+                    <div>
+                    <button onClick={this.handleDcrement}>dcrement (-)</button>
+                    {this.state.count}
+                    <button onClick={this.handleIncrement}>increment (+)</button>
+                    
+                    </div>
+                    )
+            }
+        }
+        
+        ReactDOM.render(
+            <Counter/>, 
+            document. getElementById("root")
+        );
+
+
+    </script>
+</body>
+</html>
